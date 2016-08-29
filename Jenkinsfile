@@ -1,1 +1,3 @@
-sh "ls -la"
+node {
+  sh "ls -la"
+}
