@@ -1,6 +1,6 @@
 node {
   stage 'git'
-  git url: 'https://github.com/ArtikUA/enkonix'
+  checkout scm
   
   stage 'install'
   sh "make install"
