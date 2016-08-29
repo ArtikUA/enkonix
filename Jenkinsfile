@@ -7,4 +7,7 @@ node {
   
   stage "flake8"
   sh "make flake8"
+  
+  stage "slack"
+  slackSend color: 'good', message: 'Everything OK'
 }
