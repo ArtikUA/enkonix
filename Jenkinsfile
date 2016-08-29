@@ -5,8 +5,6 @@ node {
   stage 'install'
   sh "make install"
   
-  slackSend color: 'good', message: 'Everything OK'
-  
   stage "flake8"
   sh "make flake8"
   
