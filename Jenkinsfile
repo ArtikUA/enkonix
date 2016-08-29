@@ -1,7 +1,10 @@
 node {
   stage 'git'
   git url: 'https://github.com/ArtikUA/enkonix'
-  stage 'make'
-  sh "make jenkins"
-  stage "finish"
+  
+  stage 'install'
+  sh "make install"
+  
+  stage "flake8"
+  sh "make flake8"
 }
