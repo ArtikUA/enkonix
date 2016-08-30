@@ -13,6 +13,6 @@ node {
     
     slackSend color: 'good', message: 'Build for branch ' + BRANCH_NAME + 'is SUCESS!'
   } catch (err) {
-    slackSend color: 'good', message: 'Build is FAIL! Reason: ' + err
+    slackSend color: 'good', message: 'Build is FAIL! ' + BUILD_URL
   }
 }
