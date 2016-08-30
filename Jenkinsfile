@@ -11,7 +11,7 @@ node {
     
     stage "slack"
     
-    slackSend color: 'good', message: 'Build is SUCESS!'
+    slackSend color: 'good', message: 'Build for branch ' + BRANCH_NAME + 'is SUCESS!'
   } catch (err) {
     slackSend color: 'good', message: 'Build is FAIL! Reason: ' + err
   }
