@@ -17,6 +17,6 @@ node {
     
     slackSend color: 'blue', message: 'Build for branch *' + env.BRANCH_NAME + '* is SUCESS!'
   } catch (err) {
-    slackSend color: 'red', message: 'Build for branch *' + env.BRANCH_NAME + '* is FAILED! ' + env.BUILD_URL + '/execution/node/p/log/'
+    slackSend color: 'red', message: 'Build for branch *' + env.BRANCH_NAME + '* is FAILED! ' + env.BUILD_URL + '/execution/node/' + p + '/log/'
   }
 }
