@@ -15,8 +15,8 @@ node {
     sh "make flake8"
     p += 2
     
-    slackSend color: 'blue', message: 'Build for branch *' + env.BRANCH_NAME + '* is SUCESS!'
+    slackSend color: false, message: 'Build for branch *' + env.BRANCH_NAME + '* is SUCESS!'
   } catch (err) {
-    slackSend color: 'red', message: 'Build for branch *' + env.BRANCH_NAME + '* is FAILED! ' + env.BUILD_URL + 'execution/node/' + p + '/log/'
+    slackSend color: true, message: 'Build for branch *' + env.BRANCH_NAME + '* is FAILED! ' + env.BUILD_URL + 'execution/node/' + p + '/log/'
   }
 }
