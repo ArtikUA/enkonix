@@ -3,7 +3,7 @@ node {
     stage 'git'
     checkout scm
     
-    slackSend color: 'good', message: 'nl: ' + env.NODE_LABELS + ' bt: ' + env.BUILD_TAG + ' cb' + currentBuild
+    slackSend color: 'good', message: currentBuild.result + ' ' +  currentBuild.displayName + ' ' +  currentBuild.description
     
     stage 'install'
     sh "make install"
