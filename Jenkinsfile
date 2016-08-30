@@ -1,20 +1,22 @@
 node {
   try {
+    p = 6
+    
     stage 'git'
     checkout scm
+    p++
     
-    slackSend color: 'good', message: currentBuild.result + ' ' +  currentBuild.displayName + ' ' +  currentBuild.description
     
     stage 'install'
     sh "make install"
+    p++
     
     stage "flake8"
     sh "make flake8"
+    p++
     
-    stage "slack"
-    
-    slackSend color: 'bad', message: 'Build for branch *' + env.BRANCH_NAME + '* is SUCESS!'
+    slackSend color: 'blue', message: 'Build for branch *' + env.BRANCH_NAME + '* is SUCESS!'
   } catch (err) {
-    slackSend color: 'good', message: 'Build for branch *' + env.BRANCH_NAME + '* is FAILED! ' + env.BUILD_URL
+    slackSend color: 'red', message: 'Build for branch *' + env.BRANCH_NAME + '* is FAILED! ' + env.BUILD_URL + '/execution/node/p/log/'
   }
 }
