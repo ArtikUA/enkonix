@@ -15,7 +15,7 @@ node {
     p += 2
     
     stage "slack"
-    slackSend color: 'bad', message: "Build for branch *${env.BRANCH_NAME}* is SUCESS!"
+    slackSend color: 'bad', message: "Build for branch *${env.BRANCH_NAME}* is success!"
   } catch (err) {
     stage "slack"
     slackSend color: 'good', message: "Build for branch *${env.BRANCH_NAME}* is FAILED! Reason: ${err}. ${env.BUILD_URL}execution/node/${p}/log/"
