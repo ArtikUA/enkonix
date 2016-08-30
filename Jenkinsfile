@@ -10,6 +10,8 @@ node {
     sh "make flake8"
     
     stage "slack"
+    
+    slackSend color: 'good', message: 'Build is SUCESS!'
   } catch (err) {
     slackSend color: 'good', message: 'Build is FAIL! Reason: ' + err
   }
